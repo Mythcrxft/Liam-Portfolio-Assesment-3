@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experience, education and skills of Liam Cini, photographer.">
+  <meta name="author" content="Liam Cini">
+  <title>Resume | Liam Cini</title>
+
+  <!-- Favicon: replace the files in /favicon with your own from favicon.io -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+
+  <!-- Google Fonts fallbacks: Montserrat (stands in for Imperial Sans), IBM Plex Mono (stands in for Imperial Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Montserrat:wght@500;700&family=display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 + Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Custom CSS last so it can override Bootstrap -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Apply saved Dark/Light choice before the page paints (prevents a flash) -->
+  <script>
+    try { document.documentElement.setAttribute('data-bs-theme', localStorage.getItem('theme') || 'light'); } catch (e) {}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Site header (from wireframe): avatar, name and role, Dark/Light button, then page navigation -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-top">
+      <a class="brand" href="index.html">
+        <img src="images/liam-cini-profile.jpg" class="brand-avatar" width="64" height="64" alt="Portrait of Liam Cini">
+        <span><strong class="brand-name">Liam Cini</strong><span class="brand-role">Photographer</span></span>
+      </a>
+      <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch between dark and light mode">
+        <i class="bi bi-circle-half" aria-hidden="true"></i> <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-pill" href="index.html">Home</a></li>
+        <li><a class="nav-pill" href="about.html">About</a></li>
+        <li><a class="nav-pill" href="work.html">Work</a></li>
+        <li><a class="nav-pill" href="contact.html">Contact</a></li>
+        <li><a class="nav-pill active" href="resume.html" aria-current="page">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container page-content">
+  <div class="row g-4">
+    <div class="col-12 col-md-4"><h1 class="page-title">Resume</h1></div>
+    <div class="col-12 col-md-8">
+      <p><a class="btn-pill" href="pdf/liamcini_resume.pdf" download><i class="bi bi-download" aria-hidden="true"></i> Download PDF</a></p>
+
+      <!-- Objective -->
+      <h2 class="h4 mt-4">Objective</h2>
+      <p>Seeking an entry-level position in IT and Cyber Security to apply my skills and passion for technology and grow professionally.</p>
+
+      <!-- Experience -->
+      <h2 class="h4 mt-4">Experience</h2>
+      <article class="entry"><h3 class="h5">Work Placement</h3><p class="meta">St Andrews College, Marayong</p><p>Completed a practical placement as part of the NSW VET IDT course, gaining hands-on ICT support experience. Troubleshot hardware and software issues and supported network operations.</p></article>
+      <article class="entry"><h3 class="h5">Work Placement</h3><p class="meta">CathWest Innovation College</p><p>Completed a second placement focused on ICT systems and digital technologies. Helped with technical support tasks and worked with staff to keep technology running smoothly.</p></article>
+
+      <!-- Education -->
+      <h2 class="h4 mt-4">Education</h2>
+      <article class="entry"><h3 class="h5">Certificate III in Information &amp; Digital Technology</h3><p class="meta">TAFE NSW &middot; 2025 graduate</p></article>
+      <article class="entry"><h3 class="h5">High School Certificate</h3><p class="meta">St Pauls Catholic College &middot; 2025 graduate</p></article>
+
+      <!-- Skills -->
+      <h2 class="h4 mt-4">Skills</h2>
+      <ul class="skill-tags"><li>Adaptable</li><li>Advocacy</li><li>Collaboration</li><li>Technology foundations</li><li>Risk awareness</li></ul>
+
+      <!-- Achievements -->
+      <h2 class="h4 mt-4">Achievements</h2>
+      <ul>
+        <li>Highest academic achievement in Information and Digital Technology</li>
+        <li>70 hours of work placement</li>
+        <li>Academic Growth Award in Information and Digital Technology</li>
+        <li>1st place, Year 11 Information and Digital Technology</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Page-to-page links: previous / next in the site order -->
+  <nav class="page-next" aria-label="Previous and next page">
+    <a href="contact.html">&larr; Contact</a>
+    <a href="index.html">Back to Home &uarr;</a>
+  </nav>
+</main>
+
+<!-- Footer: social icons + direct contact links on every page -->
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+    <p class="mb-0">&copy; 2026 Liam Cini. <a href="mailto:mythcrxft@gmail.com">mythcrxft@gmail.com</a> &middot; <a href="tel:+61412345789">0412 345 789</a></p>
+    <p class="social-links mb-0">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.behance.net/" target="_blank" rel="noopener" aria-label="Behance"><i class="bi bi-behance"></i></a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

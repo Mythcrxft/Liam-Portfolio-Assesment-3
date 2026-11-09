@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Photography projects by Liam Cini.">
+  <meta name="author" content="Liam Cini">
+  <title>Work | Liam Cini</title>
+
+  <!-- Favicon: replace the files in /favicon with your own from favicon.io -->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+
+  <!-- Google Fonts fallbacks: Montserrat (stands in for Imperial Sans), IBM Plex Mono (stands in for Imperial Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Montserrat:wght@500;700&family=display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 + Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Custom CSS last so it can override Bootstrap -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Apply saved Dark/Light choice before the page paints (prevents a flash) -->
+  <script>
+    try { document.documentElement.setAttribute('data-bs-theme', localStorage.getItem('theme') || 'light'); } catch (e) {}
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- Site header (from wireframe): avatar, name and role, Dark/Light button, then page navigation -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-top">
+      <a class="brand" href="index.html">
+        <img src="images/liam-cini-profile.jpg" class="brand-avatar" width="64" height="64" alt="Portrait of Liam Cini">
+        <span><strong class="brand-name">Liam Cini</strong><span class="brand-role">Photographer</span></span>
+      </a>
+      <button type="button" class="theme-btn" id="themeToggle" aria-label="Switch between dark and light mode">
+        <i class="bi bi-circle-half" aria-hidden="true"></i> <span id="themeLabel">Dark</span>
+      </button>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-pill" href="index.html">Home</a></li>
+        <li><a class="nav-pill" href="about.html">About</a></li>
+        <li><a class="nav-pill active" href="work.html" aria-current="page">Work</a></li>
+        <li><a class="nav-pill" href="contact.html">Contact</a></li>
+        <li><a class="nav-pill" href="resume.html">Resume</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="container page-content">
+  <h1 class="page-title text-center">Projects</h1>
+
+  <p class="text-center">Select a photo to see it larger.</p>
+
+  <!-- Three photos in one line (stacks on phones) -->
+  <div class="photo-row">
+    <figure class="photo-item" style="--ratio: 1.333">
+      <button type="button" class="photo-btn open-lightbox" data-bs-toggle="modal" data-bs-target="#projectLightbox"
+              data-project-src="images/waterfront-sunset.jpg" data-project-title="Waterfront at Sunset" data-project-description="Golden-hour light over the water, with lamps lighting the wooden boardwalk." aria-label="View Waterfront at Sunset larger"><img src="images/waterfront-sunset.jpg" width="741" height="556" alt="Sunset over a harbour with a ferry in the distance and people sitting on a timber boardwalk" loading="lazy"></button>
+      <figcaption>Waterfront at Sunset</figcaption>
+    </figure>
+    <figure class="photo-item" style="--ratio: 1.333">
+      <button type="button" class="photo-btn open-lightbox" data-bs-toggle="modal" data-bs-target="#projectLightbox"
+              data-project-src="images/neon-evening.jpg" data-project-title="Neon Evening" data-project-description="A night scene with neon signs reflecting on the wet pavement." aria-label="View Neon Evening larger"><img src="images/neon-evening.jpg" width="741" height="556" alt="Night view of a lit entertainment precinct with neon signs and outdoor tables" loading="lazy"></button>
+      <figcaption>Neon Evening</figcaption>
+    </figure>
+    <figure class="photo-item" style="--ratio: 0.743">
+      <button type="button" class="photo-btn open-lightbox" data-bs-toggle="modal" data-bs-target="#projectLightbox"
+              data-project-src="images/boardwalk-dusk.jpg" data-project-title="Boardwalk at Dusk" data-project-description="Warm light along a timber boardwalk as the sun sets over the harbour." aria-label="View Boardwalk at Dusk larger"><img src="images/boardwalk-dusk.jpg" width="413" height="556" alt="Timber boardwalk beside the water at dusk with a glowing sky" loading="lazy"></button>
+      <figcaption>Boardwalk at Dusk</figcaption>
+    </figure>
+  </div>
+
+  <!-- Lightbox: one shared Bootstrap modal filled by js/main.js -->
+  <div class="modal fade" id="projectLightbox" tabindex="-1" aria-labelledby="projectLightboxLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h4" id="projectLightboxLabel">Project title</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="images/waterfront-sunset.jpg" class="img-fluid modal-img" id="modalProjectImage" alt="Selected project">
+          <p id="modalProjectDescription" class="mt-3 mb-0">Project description.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-to-page links: previous / next in the site order -->
+  <nav class="page-next" aria-label="Previous and next page">
+    <a href="about.html">&larr; About</a>
+    <a href="contact.html">Contact &rarr;</a>
+  </nav>
+</main>
+
+<!-- Footer: social icons + direct contact links on every page -->
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+    <p class="mb-0">&copy; 2026 Liam Cini. <a href="mailto:mythcrxft@gmail.com">mythcrxft@gmail.com</a> &middot; <a href="tel:+61412345789">0412 345 789</a></p>
+    <p class="social-links mb-0">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.behance.net/" target="_blank" rel="noopener" aria-label="Behance"><i class="bi bi-behance"></i></a>
+    </p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

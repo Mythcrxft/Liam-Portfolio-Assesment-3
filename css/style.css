@@ -1,0 +1,153 @@
+/* ==========================================================
+   Liam Cini photography portfolio | INFO1005 Assessment 3
+   Fonts: Imperial Sans (headings), Imperial Mono (body text).
+   Google Fonts fallbacks: Montserrat, IBM Plex Mono
+   Palette, complementary rule (blue + orange), record the
+   Adobe Color link and colour-blind check here:
+     blue   #6BB1FF  header band (light mode)
+     ink    #0F1B2D  text on blue and page
+     link   #1457A8  links (5.9:1 on white)
+     orange #F28C38  active page + focus ring (complement of blue)
+     grey   #E9EDF2  pill buttons (as in wireframe)
+   ========================================================== */
+
+/* 0. Custom fonts: add the licensed files to /fonts (see fonts/README.txt).
+   local() is tried first, then the file; if neither exists the Google Fonts fallback is used. */
+@font-face { font-family: 'Imperial Sans'; font-weight: 400; font-display: swap;
+  src: local('Imperial Sans'), url('../fonts/imperialsans-regular.woff2') format('woff2'); }
+@font-face { font-family: 'Imperial Sans'; font-weight: 700; font-display: swap;
+  src: local('Imperial Sans Bold'), url('../fonts/imperialsans-bold.woff2') format('woff2'); }
+@font-face { font-family: 'Imperial Mono'; font-weight: 400; font-display: swap;
+  src: local('Imperial Mono'), url('../fonts/imperialmono-regular.woff2') format('woff2'); }
+@font-face { font-family: 'Imperial Mono'; font-weight: 700; font-display: swap;
+  src: local('Imperial Mono Bold'), url('../fonts/imperialmono-bold.woff2') format('woff2'); }
+
+/* 1. Variables: light mode, then dark mode overrides */
+:root {
+  --header-bg: #6BB1FF;
+  --header-text: #0F1B2D;
+  --page-bg: #FFFFFF;
+  --panel-bg: #F3F6FA;
+  --text: #0F1B2D;
+  --text-soft: #3D4B5F;
+  --link: #1457A8;
+  --pill-bg: #E9EDF2;
+  --pill-text: #0F1B2D;
+  --pill-border: #2B3A4F;
+  --line: #D5DCE6;
+  --accent: #F28C38;
+  --font-heading: 'Imperial Sans', 'Montserrat', Arial, sans-serif;
+  --font-body: 'Imperial Mono', 'IBM Plex Mono', Consolas, monospace;
+}
+[data-bs-theme="dark"] {
+  --header-bg: #1F4E87;
+  --header-text: #FFFFFF;
+  --page-bg: #0E1624;
+  --panel-bg: #172236;
+  --text: #F1F4F9;
+  --text-soft: #C5CEDB;
+  --link: #8CC4FF;
+  --line: #2C3A52;
+}
+
+/* 2. Base and typography */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; } /* stops phones auto-enlarging text */
+body { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; background: var(--page-bg); color: var(--text); }
+h1, h2, h3, h4, h5 { font-family: var(--font-heading); font-weight: 700; color: var(--text); line-height: 1.25; }
+h1 { font-size: 2rem; }   /* fixed sizes (no viewport scaling) so text stays consistent on every device */
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+p, li { color: var(--text-soft); }
+a { color: var(--link); }
+.lead-copy { color: var(--text); font-size: 1.15rem; }
+.page-content { padding-top: 2.5rem; padding-bottom: 3.5rem; min-height: 60vh; }
+.page-title { margin-bottom: 1rem; }
+
+/* 3. Accessibility */
+.skip-link { position: absolute; left: -999px; top: 0; background: #0F1B2D; color: #fff; padding: .5rem 1rem; z-index: 2000; }
+.skip-link:focus { left: 0; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* 4. Header: blue band with avatar, name, theme button and pill navigation */
+.site-header { background: var(--header-bg); color: var(--header-text); padding: .75rem 0 1rem; position: sticky; top: 0; z-index: 1030; }
+.header-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: .75rem; }
+.brand { display: flex; align-items: center; gap: .9rem; text-decoration: none; color: var(--header-text); }
+.brand:hover { color: var(--header-text); }
+.brand-avatar { width: 64px; height: 64px; object-fit: cover; border: 2px solid var(--pill-border); background: #fff; }
+.brand-name { display: block; font-family: var(--font-heading); font-size: 1.25rem; }
+.brand-role { display: block; font-size: 1.1rem; }
+.theme-btn, .btn-pill { background: var(--pill-bg); color: var(--pill-text); border: 2px solid var(--pill-border); border-radius: .6rem; padding: .3rem .9rem; font-weight: 600; text-decoration: none; display: inline-block; }
+.theme-btn:hover, .btn-pill:hover { background: var(--accent); color: #0F1B2D; }
+.nav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.nav-pill { display: inline-block; background: var(--pill-bg); color: var(--pill-text); border: 2px solid var(--pill-border); border-radius: .6rem; padding: .25rem .9rem; font-weight: 600; text-decoration: none; }
+.nav-pill:hover { background: #fff; color: #0F1B2D; }
+.nav-pill.active:hover { background: #3A3F46; color: #FFFFFF; }
+.nav-pill.active { background: #4B5058; color: #FFFFFF; border-color: #2B3036; } /* selected page: dark grey, white text (8:1 contrast) */
+
+/* 5. Cards (work page) */
+.card { background: var(--panel-bg); border: 1px solid var(--line); border-radius: .75rem; overflow: hidden; color: var(--text); }
+.card-img-top { aspect-ratio: 4 / 3; object-fit: cover; }
+.card-text { color: var(--text-soft); }
+.work-card { transition: transform .25s ease; }
+.work-card:hover { transform: translateY(-5px); }
+.modal-content { background: var(--page-bg); color: var(--text); border: 3px solid var(--header-bg); }
+.modal-img { width: 100%; border-radius: .5rem; }
+
+/* 5b. Photo row: three images in one line, equal height, widths follow each photo's shape */
+.photo-row { display: flex; gap: 1rem; margin-top: 1.5rem; }
+.photo-item { flex: var(--ratio) 1 0; min-width: 0; margin: 0; }
+.photo-item img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; border-radius: .75rem; border: 1px solid var(--line); display: block; aspect-ratio: var(--ratio); }
+.photo-item figcaption { margin-top: .5rem; font-weight: 600; color: var(--text); font-size: .95rem; }
+.photo-btn { padding: 0; border: 0; background: none; width: 100%; display: block; cursor: zoom-in; transition: transform .25s ease; }
+.photo-btn:hover, .photo-item a:hover img { transform: translateY(-4px); }
+.photo-item img { transition: transform .25s ease; }
+.photo-item a { display: block; }
+@media (max-width: 575.98px) { .photo-row { flex-direction: column; } .photo-item img { max-height: none; } }
+
+/* 5c. Previous / next page links */
+.page-next { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-weight: 600; }
+
+/* 6. Resume, contact and forms */
+.entry { margin-bottom: 1.25rem; }
+.meta { font-weight: 600; color: var(--text); margin-bottom: .25rem; }
+.skill-tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.skill-tags li { background: var(--header-bg); color: var(--header-text); border-radius: 999px; padding: .2rem .9rem; font-weight: 600; }
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { margin-bottom: .6rem; }
+.contact-list i { margin-right: .5rem; }
+.contact-form { background: var(--panel-bg); border: 1px solid var(--line); border-radius: .75rem; padding: 1.25rem; margin-top: 1.5rem; }
+.form-label { color: var(--text); font-weight: 600; }
+.form-control { background: var(--page-bg); color: var(--text); border: 2px solid var(--line); }
+.form-control:focus { background: var(--page-bg); color: var(--text); border-color: var(--link); box-shadow: none; }
+
+/* 7. Footer */
+.site-footer { background: var(--header-bg); padding: 1.5rem 0; }
+.site-footer p, .site-footer a { color: var(--header-text); }
+.social-links a { font-size: 1.5rem; margin-left: 1rem; text-decoration: none; }
+
+/* 8. Responsive */
+/* Phone: the banner keeps the avatar, name, theme button and ALL five nav buttons in one row */
+@media (max-width: 575.98px) {
+  .site-header { padding: .5rem 0 .6rem; }
+  .site-header .container { padding-left: .75rem; padding-right: .75rem; }
+  .header-top { margin-bottom: .5rem; gap: .5rem; }
+  .brand { gap: .6rem; min-width: 0; }
+  .brand-avatar { width: 48px; height: 48px; flex-shrink: 0; }
+  .brand-name { font-size: 1.05rem; }
+  .brand-role { font-size: .9rem; }
+  .theme-btn { font-size: .85rem; padding: .25rem .6rem; white-space: nowrap; }
+  .nav-list { flex-wrap: nowrap; gap: .25rem; justify-content: space-between; overflow-x: auto; }
+  .nav-pill { font-size: .8rem; padding: .25rem .4rem; border-width: 2px; white-space: nowrap; }
+  .page-content { padding-top: 1.75rem; padding-bottom: 2.5rem; }
+  .page-next { margin-top: 2rem; }
+  .social-links a:first-child { margin-left: 0; }
+}
+/* Tablet */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .page-content { padding-top: 2rem; }
+}
+/* Desktop */
+@media (min-width: 992px) {
+  .page-content { padding-top: 3.5rem; }
+  h1 { font-size: 2.4rem; }
+}
